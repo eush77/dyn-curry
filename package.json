@@ -1,0 +1,24 @@
+{
+  "name": "dyn-curry",
+  "version": "0.0.0",
+  "description": "Dynamic, fully controlled currying",
+  "author": "Eugene Sharygin <eush77@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha --require should test"
+  },
+  "homepage": "https://github.com/eush77/dyn-curry",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eush77/dyn-curry"
+  },
+  "bugs": {
+    "url": "https://github.com/eush77/dyn-curry/issues"
+  },
+  "keywords": [],
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^2.0.1",
+    "should": "^4.3.0"
+  }
+}
