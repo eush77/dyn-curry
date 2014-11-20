@@ -5,20 +5,24 @@ var curry = require('..');
 
 describe('dyn-curry', function () {
   it('should curry a function as long as it says to do so', function () {
-    var blackjack = curry(function () {
-      var value = [].reduce.call(arguments, function (a, b) { return a + b; }, 0);
-      if (!value) {
-        return NaN;
+    var sumAmount = curry(function (count) {
+      if (count == null || arguments.length < count + 1) {
+        return curry;
       }
-      return (value < 21) ? curry : value;
+
+      var numbers = [].slice.call(arguments, 1, count + 1);
+      var sum = numbers.reduce(function (a, b) {
+        return a + b;
+      }, 0);
+      return sum;
     });
 
-    blackjack().should.be.NaN;
-    blackjack(10).should.be.a.Function;
-    blackjack(10)(10).should.be.a.Function;
-    blackjack(10)(10)(1).should.equal(21);
-    blackjack(10, 10)(1, 3).should.equal(24);
-    blackjack(10, 10)(1, 3, -24).should.be.NaN;
+    sumAmount().should.be.a.Function;
+    sumAmount(0).should.equal(0);
+    sumAmount(1).should.be.a.Functions;
+    sumAmount(1)(2).should.equal(2);
+    sumAmount()(2).should.be.a.Function;
+    sumAmount(2)(3, 4).should.equal(7);
   });
 
   it('should produce no side effects aside from the function call', function () {

@@ -28,23 +28,6 @@ Finally, `curry` is curried itself! If the first argument is not a function, it 
 
 ## Examples
 
-### String concatenation
-
-```js
-var makeSentence = curry(function () {
-  var last = arguments[arguments.length - 1];
-  if (typeof last != 'string' || last[last.length - 1] != '.') {
-    // Curry until the sentence ends.
-    return curry;
-  }
-  return [].join.call(arguments, ' ');
-});
-
-var sentence = makeSentence('Master', 'Foo'); // function
-sentence = sentence('was', 'iterating'); // function
-sentence = sentence('along', 'the', 'beach.'); // finally, a string
-```
-
 ### Optional arguments
 
 ```js
@@ -79,6 +62,39 @@ var add = curry(function (a, b) {
 add(); // function
 add(1); // function
 add(1, 2); // 3
+```
+
+### String concatenation
+
+```js
+var makeSentence = curry(function () {
+  var last = arguments[arguments.length - 1];
+  if (typeof last != 'string' || last[last.length - 1] != '.') {
+    // Curry until the sentence ends.
+    return curry;
+  }
+  return [].join.call(arguments, ' ');
+});
+
+var sentence = makeSentence('Master', 'Foo'); // function
+sentence = sentence('was', 'iterating'); // function
+sentence = sentence('along', 'the', 'beach.'); // finally, a string
+```
+
+### Blackjack
+
+```js
+var blackjack = curry(function () {
+  var value = [].reduce.call(arguments, function (a, b) {
+    return a + b;
+  }, 0);
+  return (value < 21) ? curry : value;
+});
+
+blackjack(10); // function
+blackjack(10)(11); // 21
+blackjack(10)(5, 3)(2, 1); // 21
+blackjack(42); // 42
 ```
 
 ## Install

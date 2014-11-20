@@ -9,26 +9,6 @@ var itWorks = function (test) {
 
 
 describe('examples', function () {
-  describe('"String concatenation"', function () {
-    itWorks(function () {
-      var makeSentence = curry(function () {
-        var last = arguments[arguments.length - 1];
-        if (typeof last != 'string' || last[last.length - 1] != '.') {
-          // Curry until the sentence ends.
-          return curry;
-        }
-        return [].join.call(arguments, ' ');
-      });
-
-      var sentence;
-      (sentence = makeSentence('Master', 'Foo')).should.be.a.Function;
-      (sentence = sentence('was', 'iterating')).should.be.a.Function;
-      (sentence = sentence('along', 'the', 'beach.')).should.be.type('string');
-
-      sentence.should.equal('Master Foo was iterating along the beach.');
-    });
-  });
-
   describe('"Optional arguments"', function () {
     itWorks(function () {
       var hello = curry(function (options, message) {
@@ -62,6 +42,42 @@ describe('examples', function () {
       add().should.be.a.Function;
       add(1).should.be.a.Function;
       add(1, 2).should.equal(3);
+    });
+  });
+
+  describe('"String concatenation"', function () {
+    itWorks(function () {
+      var makeSentence = curry(function () {
+        var last = arguments[arguments.length - 1];
+        if (typeof last != 'string' || last[last.length - 1] != '.') {
+          // Curry until the sentence ends.
+          return curry;
+        }
+        return [].join.call(arguments, ' ');
+      });
+
+      var sentence;
+      (sentence = makeSentence('Master', 'Foo')).should.be.a.Function;
+      (sentence = sentence('was', 'iterating')).should.be.a.Function;
+      (sentence = sentence('along', 'the', 'beach.')).should.be.type('string');
+
+      sentence.should.equal('Master Foo was iterating along the beach.');
+    });
+  });
+
+  describe('"Blackjack"', function () {
+    itWorks(function () {
+      var blackjack = curry(function () {
+        var value = [].reduce.call(arguments, function (a, b) {
+          return a + b;
+        }, 0);
+        return (value < 21) ? curry : value;
+      });
+
+      blackjack(10).should.be.a.Function;
+      blackjack(10)(11).should.equal(21);
+      blackjack(10)(5, 3)(2, 1).should.equal(21);
+      blackjack(42).should.equal(42);
     });
   });
 });
