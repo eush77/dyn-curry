@@ -40,9 +40,9 @@ var makeSentence = curry(function () {
   return [].join.call(arguments, ' ');
 });
 
-makeSentence('Master', 'Foo'); // function
-makeSentence('was', 'iterating'); // function
-makeSentence('along', 'the', 'beach.'); // finally, a string
+var sentence = makeSentence('Master', 'Foo'); // function
+sentence = sentence('was', 'iterating'); // function
+sentence = sentence('along', 'the', 'beach.'); // finally, a string
 ```
 
 ### Optional arguments
@@ -70,11 +70,11 @@ hello({ suffix: ' Nice jacket!' })('Hello!'); // "Hello! Nice jacket!"
 
 ```js
 var add = curry(function (a, b) {
-  if (argument.length < 2) {
+  if (arguments.length < 2) {
     return curry;
   }
   return a + b;
-}
+});
 
 add(); // function
 add(1); // function

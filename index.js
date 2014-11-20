@@ -16,3 +16,6 @@ var curry = function curry(fn, fixedArgs) {
     return (value === dynCurry) ? curry(fn, args) : value;
   };
 };
+
+
+module.exports = dynCurry;
