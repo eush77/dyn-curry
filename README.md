@@ -11,7 +11,7 @@
 
 Yes, but this time it is quite different.
 
-Usually currying routines do some magic with `fn.length` to determine how far the currying should go.
+Usually [currying](https://en.wikipedia.org/wiki/Currying) routines use [`fn.length`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length) to determine how far the currying should go. This is rather restricting.
 
 [Some](https://www.npmjs.org/package/curry-di) [other](https://www.npmjs.org/package/underscorify) modules do something trickier than that, but you still can't effect their choices from inside a function being curried.
 
