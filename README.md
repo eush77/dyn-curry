@@ -7,7 +7,7 @@
 [david]: https://david-dm.org/eush77/dyn-curry
 [david-badge]: https://david-dm.org/eush77/dyn-curry.png
 
-## [What](https://www.npmjs.org/search?q=curry)? [Yet](https://www.npmjs.org/package/curry) [another](https://www.npmjs.org/package/dot-curry) [currying](https://www.npmjs.org/package/better-curry) [module](https://www.npmjs.org/package/underscorify)?
+## [What](https://www.npmjs.org/search?q=curry)? [Yet](https://www.npmjs.org/package/curry) [another](https://www.npmjs.org/package/dot-curry) [currying](https://www.npmjs.org/package/curry-di) [module](https://www.npmjs.org/package/underscorify)?
 
 Yes, but this time it is quite different.
 
