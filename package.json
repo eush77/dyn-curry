@@ -1,7 +1,7 @@
 {
   "name": "dyn-curry",
-  "version": "0.0.0",
-  "description": "Dynamic, fully controlled currying",
+  "version": "0.1.0",
+  "description": "Dynamic, fully controlled and configurable currying",
   "author": "Eugene Sharygin <eush77@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -15,7 +15,17 @@
   "bugs": {
     "url": "https://github.com/eush77/dyn-curry/issues"
   },
-  "keywords": [],
+  "keywords": [
+    "dynamic",
+    "curry",
+    "partial",
+    "currying",
+    "function",
+    "application",
+    "bind",
+    "arity",
+    "functional"
+  ],
   "dependencies": {},
   "devDependencies": {
     "mocha": "^2.0.1",
