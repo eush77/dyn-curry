@@ -3,9 +3,14 @@
 var curry = require('..');
 
 
+var itWorks = function (test) {
+  it('should work as stated', test);
+};
+
+
 describe('examples', function () {
   describe('"String concatenation"', function () {
-    it('should work as stated', function () {
+    itWorks(function () {
       var makeSentence = curry(function () {
         var last = arguments[arguments.length - 1];
         if (typeof last != 'string' || last[last.length - 1] != '.') {
@@ -25,7 +30,7 @@ describe('examples', function () {
   });
 
   describe('"Optional arguments"', function () {
-    it('should work as stated', function () {
+    itWorks(function () {
       var hello = curry(function (options, message) {
         if (typeof options == 'string') {
           // No options - return the message.
@@ -46,7 +51,7 @@ describe('examples', function () {
   });
 
   describe('"Simulating traditional currying"', function () {
-    it('should work as stated', function () {
+    itWorks(function () {
       var add = curry(function (a, b) {
         if (arguments.length < 2) {
           return curry;
