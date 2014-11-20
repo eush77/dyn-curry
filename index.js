@@ -1,14 +1,6 @@
 'use strict';
 
 
-var dynCurry = function (fn, context) {
-  if (context != null) {
-    fn = fn.bind(context);
-  }
-  return curry(fn, []);
-};
-
-
 var curry = function curry(fn, fixedArgs) {
   return function () {
     var args = fixedArgs.concat([].slice.call(arguments));
@@ -16,6 +8,24 @@ var curry = function curry(fn, fixedArgs) {
     return (value === dynCurry) ? curry(fn, args) : value;
   };
 };
+
+
+var dynCurry = curry(function (context, fn) {
+  if (fn == null) {
+    if (typeof context == 'function') {
+      fn = context;
+      context = null;
+    }
+    else {
+      return dynCurry;
+    }
+  }
+  else if (context != null) {
+    fn = fn.bind(context);
+  }
+
+  return curry(fn, []);
+}, []);
 
 
 module.exports = dynCurry;
