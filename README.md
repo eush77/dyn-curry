@@ -20,11 +20,11 @@ Usually [currying](https://en.wikipedia.org/wiki/Currying) routines use [`fn.len
 ### curry = require('dyn-curry')
 ### curry([ctx], fn)
 
-Returns the wrapper function.
+Returns a wrapper function.
 
 Inside `fn`, return `curry` to indicate that the function needs more arguments. It shouldn't usually produce any side effects, because the wrapper will be called each time new chunk of arguments is supplied. Return fast.
 
-Finally, `curry` is curried itself! If the first argument is not a function, it will wait for the function to come. (Be careful: if the context is a function indeed, you should pass all of the arguments at once, no currying will happen - sorry!)
+Finally, `curry` is curried itself! If the first argument is not a function, it will wait for the function to come. (Be careful: if the context is a function indeed, you should pass all of the arguments at once, no currying will happen — sorry!)
 
 ## Examples
 
@@ -100,7 +100,7 @@ blackjack(42); // 42
 ## Install
 
 ```shell
-npm install declared
+npm install dyn-curry
 ```
 
 ## License
