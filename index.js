@@ -11,7 +11,7 @@ var curry = function curry(fn, fixedArgs) {
 
 
 var dynCurry = curry(function (context, fn) {
-  if (fn == null) {
+  if (arguments.length < 2) {
     if (typeof context == 'function') {
       fn = context;
       context = null;
